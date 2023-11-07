@@ -1,47 +1,84 @@
 import React from "react";
-import "./LoginPage.css";
 
 function LoginPage() {
   return (
     <>
-
-    <div className="object-center">
-      <div className="a object-center">Thapar University,Patiala</div>
-      <div className="b">
-        (Formerly known as Thapar Institute of Engineering and Technology)
-      </div>
-      <div className="c">WEB KIOSK(INTERNET) for Parents/Students</div>
-      </div>
-      <div className="authentication">
-        <div className="auth">
-          <img src="https://images.shiksha.com/mediadata/images/1584960645php8nt1Zj.jpeg"></img>
+      <nav className="bg-orange-400 text-center">
+        <div className="inline-block">
+          <p className="text-5xl font-semibold mb-1">
+            Thapar University, Patiala
+          </p>
+          <p className="font-medium mb-1">
+            (Formerly known as Thapar Institute of Engineering and Technology)
+          </p>
+          <p className="text-white font-semibold mb-1">
+            WEB KIOSK(INTERNET) for Parent/Students
+          </p>
         </div>
-
-        <div className="kiosk">
-          Kiosk Authentication Screen
-          <br />
-          <br />
-          <form>
-            <label for="cars">Member Type </label>
-
-            <select name="cars" id="cars">
-              <option value="Students">Students</option>
-              <option value="Parents">Parents</option>
-            </select>
-
-            <br />
-
-            <label for="fname">Enrollment No </label>
-            <input type="text" id="fname" name="fname" />
-            <br />
-
-            <label for="fname">Password/Pin </label>
-            <input type="text" id="fname" name="fname" />
-            <br />
-
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
-          </form>
+      </nav>
+      <div className="MainArea bg-yellow-300 flex py-5 justify-center px-5">
+        <img
+          className="h-2/5 w-2/5 rounded-3xl mx-5"
+          src="https://images.shiksha.com/mediadata/images/1584960645php8nt1Zj.jpeg"
+          alt=""
+        />
+        <div
+          className="Authentication mx-7 flex flex-col"
+          style={{ justifyContent: "center", alignItems: "center" }}
+        >
+          <div>
+            <p className="bg-orange-400 text-white text-center rounded-md font-semibold">
+              Kiosk Authentication Screen
+            </p>
+            <form>
+              <div className="py-0.5 inline-block">
+                <label htmlFor="Member Type">Member Type:&nbsp; </label>
+                <select
+                  name="member"
+                  id="member"
+                  className="border-solid border-neutral-500 border-2 rounded-sm w-auto"
+                >
+                  <option value="Students">Students</option>
+                  <option value="Parents">Parents</option>
+                </select>
+              </div>
+              <br />
+              <div className="py-0.5 inline-block">
+              <label htmlFor="enrollmentNo">Enrollment No: </label>
+              <input
+                type="text"
+                id="enrollmentNo"
+                name="enrollmentNo"
+                className="border-solid border-neutral-500 border-2 rounded-sm px-1"
+              />
+              </div>
+              <br />
+              <div className="py-0.5 inline-block">
+              <label htmlFor="password">Password/Pin: &nbsp; </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                className="border-solid border-neutral-500 border-2 rounded-sm px-1"
+              />
+              </div>
+              <br />
+              <div className="py-0.5 inline-block">
+              <button
+                type="submit"
+                className="border-solid border-neutral-500 border-2 rounded-sm"
+              >
+                Submit
+              </button>
+              <button
+                type="reset"
+                className="border-solid border-neutral-500 border-2 rounded-sm"
+              >
+                Reset
+              </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
       <div className="Disclaimer">
