@@ -6,7 +6,7 @@ function LoginPage() {
     <>
 
     <div className="object-center">
-      <div className="a object-center">Thapar University,Patiala</div>
+      <div className="a object-centervoi">Thapar University,Patiala</div>
       <div className="b">
         (Formerly known as Thapar Institute of Engineering and Technology)
       </div>
