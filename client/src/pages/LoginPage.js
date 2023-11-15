@@ -1,17 +1,33 @@
 import React from "react";
 import axios from 'axios';
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom';
 
 function LoginPage() {
   const [enrollmentNo, setenrollmentNo] = useState('');
   const [password, setpassword] = useState('');
-  const handleSubmit = (e)=>{
-    e.preventDefault();
+  const navigate = useNavigate();
+
+
+  const  handleSubmit = (e)=>{
+    e.preventDefault();   
+    axios.post('http://localhost:3001/login',{enrollmentNo,password})
+  .then(result=>{
+    console.log(result)
+
+    if(result.data==="Login successfull"){
+      navigate("/main");
+    }
+
+    else if(result.data==="The password is incorrect"){
+      alert('The password is incorrect');
+    }
+  })
+  
+  .catch(err=>console.log(err))
   }
 
-  axios.post('http://localhost:3001/login',{enrollmentNo,password})
-  .then(result=>console.log(result))
-  .catch(err=>console.log(err))
+  
 
   return (
     <>
