@@ -22,6 +22,9 @@ function LoginPage() {
     else if(result.data==="The password is incorrect"){
       alert('The password is incorrect');
     }
+
+    else
+    alert('Wrong credentials');
   })
   
   .catch(err=>console.log(err))

@@ -1,12 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 function MainPage() {
+  
   return (
     <div>
       <h1 className='bg-yellow-600'>
         <div className='w-100'><img className='object-contain h-20 w-20 px-0 py-0' src='https://hindubabynames.info/wp-content/themes/hbn_download/download/education-companies/thapar-institute-of-engineering-and-technology-patiala-logo.png' alt=''/></div>
         <div className='text-black text-center text-4xl'>THAPAR INSTITUTE OF ENGINEERING & TECHNOLOGY,PATIALA</div> 
-        <div className='text-right text-blue-600 text-xl pt-0'>Good <br/> Morning <br/> Kumar <br/> <a className='underline text-white' href=''>Signout</a></div>
+        <div className='text-right text-blue-600 text-xl pt-0'>Good <br/> Morning <br/> Kumar <br/> <Link className='underline text-white' to='/'>Signout</Link></div>
       </h1>
 
 
@@ -79,7 +82,7 @@ function MainPage() {
 
     <div className='underline text-blue-400'>
       <ol>
-        <li><a href=''>FAQ</a></li>
+      
         <li><a href=''>UG-1st Yr-Grp A TIMETABLE</a></li>
         <li><a href=''>UG-1st Yr-Grp B TIMETABLE</a></li>
         <li><a href=''>UG-2nd Yr-Grp A TIMETABLE</a></li>
@@ -88,7 +91,7 @@ function MainPage() {
         <li><a href=''>UG-3rd Yr-Grp B TIMETABLE</a></li>
         <li><a href=''>UG-4th yr-Grp A TIMETABLE</a></li>
         <li><a href=''>Change Pin</a></li>
-        <li><a href=''>Logout</a></li>
+        <Link to='/'>Logout</Link>
       </ol>
     </div>
       
