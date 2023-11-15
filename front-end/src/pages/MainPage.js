@@ -4,7 +4,7 @@ function MainPage() {
   return (
     <div>
       <h1 className='bg-yellow-600'>
-        <div className='w-100'><img className='object-contain h-20 w-20 px-0 py-0' src='https://hindubabynames.info/wp-content/themes/hbn_download/download/education-companies/thapar-institute-of-engineering-and-technology-patiala-logo.png'/></div>
+        <div className='w-100'><img className='object-contain h-20 w-20 px-0 py-0' src='https://hindubabynames.info/wp-content/themes/hbn_download/download/education-companies/thapar-institute-of-engineering-and-technology-patiala-logo.png' alt=''/></div>
         <div className='text-black text-center text-4xl'>THAPAR INSTITUTE OF ENGINEERING & TECHNOLOGY,PATIALA</div> 
         <div className='text-right text-blue-600 text-xl pt-0'>Good <br/> Morning <br/> Kumar <br/> <a className='underline text-white' href=''>Signout</a></div>
       </h1>
