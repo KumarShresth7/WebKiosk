@@ -30,6 +30,11 @@ function LoginPage() {
   .catch(err=>console.log(err))
   }
 
+  const handleReset = ()=>{
+    setenrollmentNo('');
+    setpassword('');
+  }
+
   
 
   return (
@@ -103,7 +108,7 @@ function LoginPage() {
               >
                 Submit
               </button>
-              <button
+              <button onClick={handleReset}
                 type="reset"
                 className="border-solid border-neutral-500 border-2 rounded-sm"
               >
