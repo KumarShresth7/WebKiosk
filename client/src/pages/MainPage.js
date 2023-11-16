@@ -90,7 +90,7 @@ function MainPage() {
         <li><a href=''>UG-3rd Yr-Grp A TIMETABLE</a></li>
         <li><a href=''>UG-3rd Yr-Grp B TIMETABLE</a></li>
         <li><a href=''>UG-4th yr-Grp A TIMETABLE</a></li>
-        <li><a href=''>Change Pin</a></li>
+        <Link to='/changePin'>Change Pin </Link> <br/>
         <Link to='/'>Logout</Link>
       </ol>
     </div>
