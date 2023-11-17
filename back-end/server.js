@@ -2,7 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+
+
 const app = express();
+
 app.use(cors());
 app.use(express.json())
 
@@ -40,3 +43,18 @@ app.post("/login",(req,res)=>{
 app.listen(3001,()=>{
     console.log('Server is running');
 })
+
+app.post('/change-Pin',(req,res)=>{
+    const {oldPass,newPass} = req.body;
+    UserModel.findOne({password:oldPass})
+    .then(user=>{
+        if(user){
+            res.json('Correct password');
+            UserModel.updateOne({password:newPass})
+        }
+        else{
+            res.json('Incorrect password');
+        }
+    })
+})
+

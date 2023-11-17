@@ -1,5 +1,6 @@
 import React from "react";
 import {useState} from 'react';
+import axios from 'axios';
 
 
 const ChangePin = () => {
@@ -10,6 +11,23 @@ const ChangePin = () => {
   const handleReset = ()=>{
     setoldPass('');
     setnewPass('');  
+  }
+
+
+  const handleSave = (e) =>{
+    e.preventDefault()
+    axios.post('http://localhost:3001/change-Pin',{oldPass,newPass})
+    .then(result=>{
+      console.log(result)
+      if(result.data==='Correct password'){
+        alert('Password has been updated')
+
+      }
+
+      else{
+        alert('Incorrect password');
+      }
+    })
   }
 
   
@@ -37,7 +55,7 @@ const ChangePin = () => {
             onChange={(e) => setnewPass(e.target.value)}
           />
           <br />
-          <button  className="border-solid border-neutral-500 border-2 rounded-sm px-1">
+          <button onClick={handleSave} className="border-solid border-neutral-500 border-2 rounded-sm px-1">
             Save
           </button>
           <span />
