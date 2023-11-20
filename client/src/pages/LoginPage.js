@@ -35,11 +35,11 @@ function LoginPage() {
     setpassword('');
   }
 
-
+  const userType = ['Student', 'Parent']
 
   return (
     <>
-      <nav className="bg-orange-400 text-center">
+      <nav className="bg-orange-400 text-center h-1/5">
         <div className="inline-block">
           <p className="text-5xl font-semibold mb-1">
             Thapar University, Patiala
@@ -52,7 +52,7 @@ function LoginPage() {
           </p>
         </div>
       </nav>
-      <div className="MainArea bg-yellow-300 flex py-5 justify-center px-5">
+      <div className="MainArea bg-yellow-300 flex py-5 justify-center px-5 h-3/5">
         <img
           className="h-2/5 w-2/5 rounded-3xl mx-5"
           src="https://images.shiksha.com/mediadata/images/1584960645php8nt1Zj.jpeg"
@@ -74,8 +74,11 @@ function LoginPage() {
                   id="member"
                   className="border-solid border-neutral-500 border-2 rounded-sm w-auto"
                 >
-                  <option value="Students">Students</option>
-                  <option value="Parents">Parents</option>
+                  {
+                    userType.map((type) => {
+                      return (<option key={type}>{type}</option>)
+                    })
+                  }
                 </select>
               </div>
               <br />
@@ -119,15 +122,17 @@ function LoginPage() {
           </div>
         </div>
       </div>
-      <div className="Disclaimer">
-        Disclaimer:Thapar Institute of Engineering and Technology is not
-        responsible for any inadvertent error that may have crept in the results
-        being published on WEB KIOSK. The results published on net are for
-        immediate information to the examinees. These cannot be treated as final
-        result. Original Grade Cards have been issued by the Institute
-        separately under the signature of Registrar and are authentic proof of
-        academic performance.
-      </div>
+      <footer className="Disclaimer bg-orange-400 h-1/5">
+        <div className="p-3">
+          Disclaimer:Thapar Institute of Engineering and Technology is not
+          responsible for any inadvertent error that may have crept in the results
+          being published on WEB KIOSK. The results published on net are for
+          immediate information to the examinees. These cannot be treated as final
+          result. Original Grade Cards have been issued by the Institute
+          separately under the signature of Registrar and are authentic proof of
+          academic performance.
+        </div>
+      </footer> 
     </>
   );
 }
