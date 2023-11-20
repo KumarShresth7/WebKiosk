@@ -18,7 +18,7 @@ function MainPage() {
         </div>
       </nav>
       <div className="flex">
-        <div className=" bg-yellow-400 w-1/5 p-4">
+        <div className=" bg-yellow-400 w-1/5 p-4 h-full">
           <h1 className="text-2xl font-bold">Sidebar</h1>
           <ul>
             <li className="py-2"><Link href="#">Link 1</Link></li>
