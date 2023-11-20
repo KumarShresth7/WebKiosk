@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import { useState } from "react";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
   const [enrollmentNo, setenrollmentNo] = useState('');
@@ -9,33 +9,33 @@ function LoginPage() {
   const navigate = useNavigate();
 
 
-  const  handleSubmit = (e)=>{
-    e.preventDefault();   
-    axios.post('http://localhost:3001/login',{enrollmentNo,password})
-  .then(result=>{
-    console.log(result)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:3001/login', { enrollmentNo, password })
+      .then(result => {
+        console.log(result)
 
-    if(result.data==="Login successfull"){
-      navigate("/main");
-    }
+        if (result.data === "Login successfull") {
+          navigate("/main");
+        }
 
-    else if(result.data==="The password is incorrect"){
-      alert('The password is incorrect');
-    }
+        else if (result.data === "The password is incorrect") {
+          alert('The password is incorrect');
+        }
 
-    else
-    alert('Wrong credentials');
-  })
-  
-  .catch(err=>console.log(err))
+        else
+          alert('Wrong credentials');
+      })
+
+      .catch(err => console.log(err))
   }
 
-  const handleReset = ()=>{
+  const handleReset = () => {
     setenrollmentNo('');
     setpassword('');
   }
 
-  
+
 
   return (
     <>
@@ -62,7 +62,7 @@ function LoginPage() {
           className="Authentication mx-7 flex flex-col"
           style={{ justifyContent: "center", alignItems: "center" }}
         >
-          <div>
+          <div className="border-2 border-orange-400 p-4 rounded-lg">
             <p className="bg-orange-400 text-white text-center rounded-md font-semibold">
               Kiosk Authentication Screen
             </p>
@@ -80,47 +80,47 @@ function LoginPage() {
               </div>
               <br />
               <div className="py-0.5 inline-block">
-              <label htmlFor="enrollmentNo">Enrollment No: </label>
-              <input
-                type="text"
-                id="enrollmentNo"
-                name="enrollmentNo"
-                className="border-solid border-neutral-500 border-2 rounded-sm px-1"
-                onChange={(e)=>setenrollmentNo(e.target.value)}
-              />
+                <label htmlFor="enrollmentNo">Enrollment No: </label>
+                <input
+                  type="text"
+                  id="enrollmentNo"
+                  name="enrollmentNo"
+                  className="border-solid border-neutral-500 border-2 rounded-sm px-1"
+                  onChange={(e) => setenrollmentNo(e.target.value)}
+                />
               </div>
               <br />
               <div className="py-0.5 inline-block">
-              <label htmlFor="password">Password/Pin: &nbsp; </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                className="border-solid border-neutral-500 border-2 rounded-sm px-1"
-                onChange={(e)=>setpassword(e.target.value)}
-              />
+                <label htmlFor="password">Password/Pin: &nbsp; </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  className="border-solid border-neutral-500 border-2 rounded-sm px-1"
+                  onChange={(e) => setpassword(e.target.value)}
+                />
               </div>
               <br />
-              <div className="py-0.5 inline-block">
-              <button
-                type="submit"
-                className="border-solid border-neutral-500 border-2 rounded-sm"
-              >
-                Submit
-              </button>
-              <button onClick={handleReset}
-                type="reset"
-                className="border-solid border-neutral-500 border-2 rounded-sm"
-              >
-                Reset
-              </button>
+              <div className="py-0.5 inline-block w-full">
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-orange-400 font-bold py-2 px-4 rounded-lg w-1/2 border border-orange-400 active:bg-red-500"
+                >
+                  Submit
+                </button>
+                <button onClick={handleReset}
+                  type="reset"
+                  className="bg-blue-500 text-orange-400 font-bold py-2 px-4 rounded-lg w-1/2 border border-orange-400 active:bg-red-500"
+                >
+                  Reset
+                </button>
               </div>
             </form>
           </div>
         </div>
       </div>
       <div className="Disclaimer">
-        Disclaimer:Thapar Institute of ENgineering and Technology is not
+        Disclaimer:Thapar Institute of Engineering and Technology is not
         responsible for any inadvertent error that may have crept in the results
         being published on WEB KIOSK. The results published on net are for
         immediate information to the examinees. These cannot be treated as final
