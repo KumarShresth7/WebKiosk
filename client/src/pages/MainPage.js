@@ -1,23 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useState,useEffect } from 'react';
-import axios from 'axios';
+// import { useState,useEffect } from 'react';
+// import axios from 'axios';
 
 
 function MainPage() {
 
-  const [name, setname] = useState('')
+  // const [name, setname] = useState('')
 
-  useEffect(()=>{
-    axios.get('http://localhost:3001/name')
-    .then(result=>{
-      setname(result.data);
-    })
-    .catch(err=>{
-      console.log(err);
+  // useEffect(()=>{
+  //   axios.get('http://localhost:3001/name')
+  //   .then(result=>{
+  //     setname(result.data);
+  //   })
+  //   .catch(err=>{
+  //     console.log(err);
 
-    })
-  })
+  //   })
+  // })
 
   // const [name, setname] = useState('')
   // const getName = async()=>{
