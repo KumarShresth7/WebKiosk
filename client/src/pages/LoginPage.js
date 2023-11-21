@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from 'axios';
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom';
@@ -8,11 +8,12 @@ function LoginPage() {
   const [password, setpassword] = useState('');
   const navigate = useNavigate();
 
+  
 
-  const  handleSubmit = (e)=>{
-    e.preventDefault();   
+  const  handleSubmit =  (e)=>{
+    e.preventDefault();  
     axios.post('http://localhost:3001/login',{enrollmentNo,password})
-  .then(result=>{
+    .then(result=>{
     console.log(result)
 
     if(result.data==="Login successfull"){
@@ -30,12 +31,15 @@ function LoginPage() {
   .catch(err=>console.log(err))
   }
 
+
+  useEffect(()=>{
+    localStorage.setItem('enrollmentNo',JSON.stringify(enrollmentNo));
+  },[enrollmentNo])
+
   const handleReset = ()=>{
     setenrollmentNo('');
     setpassword('');
   }
-
-  
 
   return (
     <>
@@ -66,7 +70,7 @@ function LoginPage() {
             <p className="bg-orange-400 text-white text-center rounded-md font-semibold">
               Kiosk Authentication Screen
             </p>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
               <div className="py-0.5 inline-block">
                 <label htmlFor="Member Type">Member Type:&nbsp; </label>
                 <select

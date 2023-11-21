@@ -1,15 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useState,useEffect } from 'react';
+import axios from 'axios';
 
 
 function MainPage() {
+
+  const [name, setname] = useState('')
+
+  useEffect(()=>{
+    axios.get('http://localhost:3001/name')
+    .then(result=>{
+      setname(result.data);
+    })
+    .catch(err=>{
+      console.log(err);
+
+    })
+  })
+
+  // const [name, setname] = useState('')
+  // const getName = async()=>{
+  //   const response = await axios.get('http://localhost:3001/login')
+  //   setname(response.data);
+  // }
+  
+   
   
   return (
     <div>
       <h1 className='bg-yellow-600'>
         <div className='w-100'><img className='object-contain h-20 w-20 px-0 py-0' src='https://hindubabynames.info/wp-content/themes/hbn_download/download/education-companies/thapar-institute-of-engineering-and-technology-patiala-logo.png' alt=''/></div>
         <div className='text-black text-center text-4xl'>THAPAR INSTITUTE OF ENGINEERING & TECHNOLOGY,PATIALA</div> 
-        <div className='text-right text-blue-600 text-xl pt-0'>Good <br/> Morning <br/> Kumar <br/> <Link className='underline text-white' to='/'>Signout</Link></div>
+        <div className='text-right text-blue-600 text-xl pt-0'>Good <br/> Morning <br/> {name} <br/> <Link className='underline text-white' to='/'>Signout</Link></div>
       </h1>
 
 

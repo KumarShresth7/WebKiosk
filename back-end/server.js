@@ -3,6 +3,9 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 
+const port = process.env.PORT||3001
+
+
 
 const app = express();
 
@@ -10,9 +13,10 @@ app.use(cors());
 app.use(express.json())
 
 mongoose.connect('mongodb://localhost:27017/Login')
-const UserSchema = new mongoose.Schema({
+let UserSchema = new mongoose.Schema({
     enrollmentNo:String,
-    password:String
+    password:String,
+    name:String
 
 })
 
@@ -23,8 +27,9 @@ app.post("/login",(req,res)=>{
     UserModel.findOne({enrollmentNo:enrollmentNo})
     .then(user=>{
         if(user){
-            if(user.password === password){
-               res.json("Login successfull")
+               if(user.password === password){
+               res.json("Login successfull");   
+               
             }
 
             else{
@@ -40,9 +45,13 @@ app.post("/login",(req,res)=>{
     })
 })
 
-app.listen(3001,()=>{
-    console.log('Server is running');
+app.listen(port,()=>{
+    console.log(`Server is running at http://localhost:${port}`);
 })
+
+app.get('/',(req,res)=>
+res.send('Server is ready')
+)
 
 app.post('/change-Pin',(req,res)=>{
     const {oldPass,newPass} = req.body;
@@ -56,5 +65,12 @@ app.post('/change-Pin',(req,res)=>{
             res.json('Incorrect password');
         }
     })
+})
+
+
+app.get('/name',(req,res)=>{
+    const enrollmentNo = localStorage.getItem("enrollmentNo");
+    UserModel.findOne({enrollmentNo:enrollmentNo})
+    .then(user=>{res.json(user.name)})
 })
 
